@@ -20,6 +20,7 @@ const movieSchema = new mongoose.Schema({
     rating: String
 })
 
+// mongo will create a collection with the name movies for us
 const Movie = mongoose.model('Movie', movieSchema)
 // const amadeus = new Movie({title: "amadeus", year: 1986, score: 9.2, rating:'R'})
 

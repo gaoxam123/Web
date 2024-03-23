@@ -39,6 +39,8 @@ const productSchema = new mongoose.Schema({
     }
 })
 
+
+// function for any product in the schema
 productSchema.methods.toggleonSale = function() {
     this.onSale = !this.onSale
     return this.save()
@@ -49,11 +51,13 @@ productSchema.methods.addcategories = function(newCat) {
     return this.save()
 }
 
+// this refers to the instance of the schema
 productSchema.methods.greet = function() {
     console.log('hi')
     console.log(`from ${this.name}`)
 }
 
+// this refers to the model itself
 productSchema.statics.fireSale = function() {
     return this.updateMany({}, {onSale: true, price: 0})
 }

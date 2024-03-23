@@ -13,16 +13,28 @@ const personSchema = new mongoose.Schema({
     last: String
 })
 
-personSchema.virtual('fullName').get(function() {
+
+// create new virtual properties (found on node, not saved in db)
+personSchema.virtual('fullName')
+.get(function() {
     return `${this.first} ${this.last}`
 })
+// use the new properties to update others
+.set(function(fullname) {
+    this.first = fullname.substr(0, fullname.indexOf(' '))
+    this.last = fullname.substr(fullname.indexOf(' ') + 1)
+})
 
+
+// mongoose middleware
+// before we save something
 personSchema.pre('save', async function() {
     this.first = 'yo'
     this.last = 'mama'
     console.log('about to save')
 })
 
+// after we save
 personSchema.post('save', async function() {
     console.log('saved')
 })
