@@ -1,8 +1,8 @@
 <% layout('layouts/boilerplate') %>
     <div class="row">
         <h1 class="text-center">Edit Campgound</h1>
-        <div class="col-6 offset-3">
-            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post" novalidate class="validated-form">
+        <div class="col-md-6 offset-md-3">
+            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post" novalidate class="validated-form" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input class="form-control" name="campground[title]" id="title" placeholder="title" type="text" value="<%= campground.title %>" required>
@@ -13,13 +13,6 @@
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
                     <input class="form-control" name="campground[location]" id="location" placeholder="location" type="text" value="<%= campground.location %>" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="image">Image Url</label>
-                    <input class="form-control" name="campground[image]" id="image" placeholder="image url" type="text" value="<%= campground.image %>" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -42,7 +35,21 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-info">Edit Campground</button>
+                    <label class="form-label" for="image">Add images</label>
+                    <input class="form-control" type="file" name="image" id="image" multiple>
+                </div>
+                <div class="mb-3">
+                    <% campground.images.forEach(function(image, i){ %>
+                        <img src="<%= image.thumbnail %>" class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input type="checkbox" id="image-<%= i %>" name="deleteImages[]" value="<%= image.filename %>">
+                            <!-- value of the input will be added into the deleteImages array, then sent back to the update route -->
+                        </div>
+                        <label for="image-<%= i %>">Delete</label>
+                    <% }) %>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-info">Update Campground</button>
                 </div>
             </form>
             <a href="/campgrounds/<%= campground._id %>">Back to Campground</a>
