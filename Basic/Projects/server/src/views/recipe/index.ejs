@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<body>
+    <h1>All Recipes</h1>
+    <ul>
+        <% for(let recipe of allRecipes) { %>
+            <p><a href="/recipes/<%= recipe._id %>"><%= recipe.title %></a> - <%= recipe.description %></p>
+            <p>price: <%= recipe.price %></p>
+        <% } %>
+    </ul>
+    <a href="/recipes/new">Create New Recipe</a>
+</body>
+</html>
