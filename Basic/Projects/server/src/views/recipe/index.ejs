@@ -9,8 +9,8 @@
     <h1>All Recipes</h1>
     <ul>
         <% for(let recipe of allRecipes) { %>
-            <p><a href="/recipes/<%= recipe._id %>"><%= recipe.title %></a> - <%= recipe.description %></p>
-            <p>price: <%= recipe.price %></p>
+            <p><a href="/recipes/<%= recipe._id %>"><%= recipe.title %></a></p>
+            <img src="<%= recipe.image %>">
         <% } %>
     </ul>
     <a href="/recipes/new">Create New Recipe</a>

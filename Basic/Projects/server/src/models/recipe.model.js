@@ -6,9 +6,23 @@ const recipeSchema = new Schema({
         type: String,
         required: true
     },
-    description: {
+    ingredients: {
         type: String,
         required: true
+    },
+    cookingInstruction: {
+        type: String,
+        required: true,
+    },
+    difficultyLevel: {
+        type: String,
+        required: true,
+        enum: ['easy', 'medium', 'hard', 'advanced']
+    },
+    category: {
+        type: String,
+        required: true,
+        enum: ['breakfast', 'lunch', 'dinner', 'dessert']
     },
     owner: {
         type: Schema.Types.ObjectId,
@@ -20,7 +34,6 @@ const recipeSchema = new Schema({
     }],
     image: {
         type: String,
-        required: true
     },
     price: {
         type: Number,

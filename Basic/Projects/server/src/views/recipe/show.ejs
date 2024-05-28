@@ -7,7 +7,13 @@
 </head>
 <body>
     <h1><%= recipe.title %></h1>
-    <p><%= recipe.description %></p>
+    <p>Description:</p>
+    <div>
+        <p>Ingredients: <%= recipe.ingredients %></p>
+        <p>Instructions: <%= recipe.cookingInstruction %></p>
+        <p>Difficulty: <%= recipe.difficultyLevel %></p>
+        <p>Estimated Price: <%= recipe.price %></p>
+    </div>
     <p><%= recipe.price %></p>
     <img src="<%= recipe.image %>">
     <a href="/recipes">Main Page</a>

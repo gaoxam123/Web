@@ -13,8 +13,30 @@
             <input id="title" placeholder="title" name="recipe[title]">
         </div>
         <div>
-            <label for="description">Description</label>
-            <input id="description" placeholder="description" name="recipe[description]">
+            <label for="ingredients">Ingredients</label>
+            <textarea id="ingredients" name="recipe[ingredients]" placeholder="ingredients" rows="5" cols="50"></textarea>
+        </div>
+        <div>
+            <label for="cookingInstruction">Cooking Instruction</label>
+            <textarea id="cookingInstruction" name="recipe[cookingInstruction]" placeholder="cookingInstruction" rows="10" cols="50"></textarea>
+        </div>
+        <div>
+            <label for="difficultyLevel">Difficulty Level</label>
+            <select id="difficultyLevel" name="recipe[difficultyLevel]">
+                <option>easy</option>
+                <option>medium</option>
+                <option>hard</option>
+                <option>advanced</option>
+            </select>
+        </div>
+        <div>
+            <label for="category">Category</label>
+            <select id="category" name="recipe[category]">
+                <option>breakfast</option>
+                <option>lunch</option>
+                <option>dinner</option>
+                <option>dessert</option>
+            </select>
         </div>
         <div>
             <label for="image">Image</label>
