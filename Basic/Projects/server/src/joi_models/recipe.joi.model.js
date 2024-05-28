@@ -6,7 +6,7 @@ const recipeJoiSchema = Joi.object({
     cookingInstruction: Joi.string().required(),
     difficultyLevel: Joi.string().valid('easy', 'medium', 'hard', 'advanced').required(),
     category: Joi.string().valid('breakfast', 'lunch', 'dinner', 'dessert').required(),
-    price: Joi.number().min(0).required().message({'number.min':'Price should be non negative'})
+    price: Joi.number().min(0).required()
 }).required()
 
 module.exports = recipeJoiSchema
