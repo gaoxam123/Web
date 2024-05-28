@@ -22,10 +22,10 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(methodOverride('_method'))
 
-app.use('/', recipeRouter)
+app.use('/recipes', recipeRouter)
 
 app.get('/', (req, res) => {
-    res.send("HI")
+    res.redirect('/recipes')
 })
 
 app.use((err, req, res, next) => {

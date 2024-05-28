@@ -23,19 +23,17 @@
         <div>
             <label for="difficultyLevel">Difficulty Level</label>
             <select id="difficultyLevel" name="recipe[difficultyLevel]">
-                <option>easy</option>
-                <option>medium</option>
-                <option>hard</option>
-                <option>advanced</option>
+                <% for(let level of difficultyLevelEnum) { %>
+                    <option value="<%= level %>"><%= level %></option>
+                <% } %>
             </select>
         </div>
         <div>
             <label for="category">Category</label>
             <select id="category" name="recipe[category]">
-                <option>breakfast</option>
-                <option>lunch</option>
-                <option>dinner</option>
-                <option>dessert</option>
+                <% for(let category of categoryEnum) { %>
+                    <option value="<%= category %>"><%= category %></option>
+            <% } %>
             </select>
         </div>
         <div>

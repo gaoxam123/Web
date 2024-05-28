@@ -10,11 +10,31 @@
     <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
         <div>
             <label for="title">Title</label>
-            <input id="title" placeholder="title" name="recipe[title]">
+            <input id="title" placeholder="title" name="recipe[title]" value="<%= recipe.title %>">
         </div>
         <div>
-            <label for="description">Description</label>
-            <input id="description" placeholder="description" name="recipe[description]">
+            <label for="ingredients">Ingredients</label>
+            <textarea id="ingredients" name="recipe[ingredients]" placeholder="ingredients" rows="5" cols="50" value="<%= recipe.ingredients %>"></textarea>
+        </div>
+        <div>
+            <label for="cookingInstruction">Cooking Instruction</label>
+            <textarea id="cookingInstruction" name="recipe[cookingInstruction]" placeholder="cookingInstruction" rows="10" cols="50" value="<%= recipe.cookingInstruction %>"></textarea>
+        </div>
+        <div>
+            <label for="difficultyLevel">Difficulty Level</label>
+            <select id="difficultyLevel" name="recipe[difficultyLevel]">
+                <% for(let level of difficultyLevelEnum) { %>
+                        <option value="<%= level %>" <%= recipe.level === level ? 'selected' : '' %>><%= level %></option>
+                <% } %>
+            </select>
+        </div>
+        <div>
+            <label for="category">Category</label>
+            <select id="category" name="recipe[category]">
+                <% for(let category of categoryEnum) { %>
+                    <option value="<%= category %>" <%= recipe.category === category ? 'selected' : '' %>><%= category %></option>
+            <% } %>
+            </select>
         </div>
         <div>
             <label for="image">Image</label>

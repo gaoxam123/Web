@@ -1,13 +1,16 @@
 const Recipe = require('../models/recipe.model')
 const catchAsync = require('../utils/catchAsync')
 
+const difficultyLevelEnum = ['easy', 'medium', 'hard', 'advanced']
+const categoryEnum = ['breakfast', 'lunch', 'dinner', 'dessert']
+
 const getAllRecipes = catchAsync(async (req, res) => {
     const allRecipes = await Recipe.find({})
     res.render('recipe/index', {allRecipes})
 })
 
 const renderCreateRecipeForm = (req, res) => {
-    res.render('recipe/new')
+    res.render('recipe/new', {difficultyLevelEnum, categoryEnum})
 }
 
 const createOneRecipe = catchAsync(async (req, res) => {
@@ -31,7 +34,7 @@ const deleteOneRecipe = catchAsync(async (req, res) => {
 const renderUpdateRecipeForm = catchAsync(async (req, res) => {
     const {id} = req.params
     const recipe = await Recipe.findById(id)
-    res.render('recipe/edit', {recipe})
+    res.render('recipe/edit', {recipe, difficultyLevelEnum, categoryEnum})
 })
 
 const updateOneRecipe = catchAsync(async (req, res) => {
