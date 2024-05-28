@@ -14,11 +14,11 @@
         </div>
         <div>
             <label for="ingredients">Ingredients</label>
-            <textarea id="ingredients" name="recipe[ingredients]" placeholder="ingredients" rows="5" cols="50" value="<%= recipe.ingredients %>"></textarea>
+            <textarea id="ingredients" name="recipe[ingredients]" placeholder="ingredients" rows="5" cols="50"><%= recipe.ingredients %></textarea>
         </div>
         <div>
             <label for="cookingInstruction">Cooking Instruction</label>
-            <textarea id="cookingInstruction" name="recipe[cookingInstruction]" placeholder="cookingInstruction" rows="10" cols="50" value="<%= recipe.cookingInstruction %>"></textarea>
+            <textarea id="cookingInstruction" name="recipe[cookingInstruction]" placeholder="cookingInstruction" rows="10" cols="50"><%= recipe.cookingInstruction %></textarea>
         </div>
         <div>
             <label for="difficultyLevel">Difficulty Level</label>
@@ -38,11 +38,11 @@
         </div>
         <div>
             <label for="image">Image</label>
-            <input id="image" placeholder="image" name="recipe[image]">
+            <input id="image" placeholder="image" name="recipe[image]" value="<%= recipe.image %>">
         </div>
         <div>
             <label for="price">Price</label>
-            <input id="price" placeholder="price" name="recipe[price]">
+            <input id="price" placeholder="price" name="recipe[price]" value="<%= recipe.price %>">
         </div>
         <button>Submit</button>
         <a href="/recipes/<%= recipe._id %>">Return</a>

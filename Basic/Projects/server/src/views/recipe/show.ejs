@@ -14,8 +14,9 @@
         <p>Difficulty: <%= recipe.difficultyLevel %></p>
         <p>Estimated Price: <%= recipe.price %></p>
     </div>
-    <p><%= recipe.price %></p>
-    <img src="<%= recipe.image %>">
+    <div>
+        <img src="<%= recipe.image %>">
+    </div>
     <a href="/recipes">Main Page</a>
     <a href="/recipes/<%= recipe._id %>/edit">Edit</a>
     <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
